@@ -1,8 +1,11 @@
-import * as React from "react"
-
-import { cn } from "@/lib/utils"
+import {
+  RiArrowLeftSLine,
+  RiArrowRightSLine,
+  RiMoreLine,
+} from "@remixicon/react"
+import type * as React from "react"
 import { Button } from "@/components/ui/button"
-import { RiArrowLeftSLine, RiArrowRightSLine, RiMoreLine } from "@remixicon/react"
+import { cn } from "@/lib/utils"
 
 function Pagination({ className, ...props }: React.ComponentProps<"nav">) {
   return (
@@ -108,12 +111,11 @@ function PaginationEllipsis({
       data-slot="pagination-ellipsis"
       className={cn(
         "flex size-7 items-center justify-center [&_svg:not([class*='size-'])]:size-3.5",
-        className
+        className,
       )}
       {...props}
     >
-      <RiMoreLine
-      />
+      <RiMoreLine />
       <span className="sr-only">More pages</span>
     </span>
   )

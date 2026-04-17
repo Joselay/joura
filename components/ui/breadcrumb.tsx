@@ -1,9 +1,8 @@
-import * as React from "react"
 import { mergeProps } from "@base-ui/react/merge-props"
 import { useRender } from "@base-ui/react/use-render"
-
-import { cn } from "@/lib/utils"
 import { RiArrowRightSLine, RiMoreLine } from "@remixicon/react"
+import type * as React from "react"
+import { cn } from "@/lib/utils"
 
 function Breadcrumb({ className, ...props }: React.ComponentProps<"nav">) {
   return (
@@ -22,7 +21,7 @@ function BreadcrumbList({ className, ...props }: React.ComponentProps<"ol">) {
       data-slot="breadcrumb-list"
       className={cn(
         "flex flex-wrap items-center gap-1.5 text-xs/relaxed wrap-break-word text-muted-foreground",
-        className
+        className,
       )}
       {...props}
     />
@@ -50,7 +49,7 @@ function BreadcrumbLink({
       {
         className: cn("transition-colors hover:text-foreground", className),
       },
-      props
+      props,
     ),
     render,
     state: {
@@ -85,9 +84,7 @@ function BreadcrumbSeparator({
       className={cn("[&>svg]:size-3.5", className)}
       {...props}
     >
-      {children ?? (
-        <RiArrowRightSLine />
-      )}
+      {children ?? <RiArrowRightSLine />}
     </li>
   )
 }
@@ -103,12 +100,11 @@ function BreadcrumbEllipsis({
       aria-hidden="true"
       className={cn(
         "flex size-4 items-center justify-center [&>svg]:size-3.5",
-        className
+        className,
       )}
       {...props}
     >
-      <RiMoreLine
-      />
+      <RiMoreLine />
       <span className="sr-only">More</span>
     </span>
   )
@@ -116,10 +112,10 @@ function BreadcrumbEllipsis({
 
 export {
   Breadcrumb,
-  BreadcrumbList,
+  BreadcrumbEllipsis,
   BreadcrumbItem,
   BreadcrumbLink,
+  BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-  BreadcrumbEllipsis,
 }
